@@ -19,9 +19,9 @@ class User(AbstractBaseUser, BaseModel, PermissionsMixin):
     """
 
     role_choices = [
-        (UserType.teacher) * 2,
-        (UserType.admin) * 2,
-        (UserType.student) * 2,
+        (UserType.teacher,) * 2,
+        (UserType.admin,) * 2,
+        (UserType.student,) * 2,
     ]
 
     email = models.EmailField(unique=True)
