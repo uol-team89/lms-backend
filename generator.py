@@ -20,7 +20,7 @@ class {model_name}DetailsView(BaseDetailsView):
 class {model_name}SearchView(BaseSearchView):
     name = "{model_name} search view"
     model = models.{model_name}
-    serializer = serializers.{model_name}Serializerc
+    serializer = serializers.{model_name}Serializers
     """
     f = open(output_file, "w")
     f.write(content)

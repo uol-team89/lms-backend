@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "corsheaders",
     # local apps
     "app_auth",
+    "app_course",
     # third-party apps
     "rest_framework",
     "rest_framework_swagger",

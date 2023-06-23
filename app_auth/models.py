@@ -4,6 +4,14 @@ from utilitas.models import BaseModel
 
 from app_auth.managers import CustomUserManager
 
+# enum thingy. Too lazy to use the enum lib
+
+
+class UserType:
+    teacher = "teacher"
+    admin = "admin"
+    student = "student"
+
 
 class User(AbstractBaseUser, BaseModel, PermissionsMixin):
     """
@@ -11,9 +19,9 @@ class User(AbstractBaseUser, BaseModel, PermissionsMixin):
     """
 
     role_choices = [
-        ("admin",) * 2,
-        ("student",) * 2,
-        ("teacher",) * 2,
+        (UserType.teacher) * 2,
+        (UserType.admin) * 2,
+        (UserType.student) * 2,
     ]
 
     email = models.EmailField(unique=True)
