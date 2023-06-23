@@ -20,7 +20,7 @@ class {model_name}DetailsView(BaseDetailsView):
 class {model_name}SearchView(BaseSearchView):
     name = "{model_name} search view"
     model = models.{model_name}
-    serializer = serializers.{model_name}Serializers
+    serializer = serializers.{model_name}Serializer
     """
     f = open(output_file, "w")
     f.write(content)
@@ -34,9 +34,9 @@ def generate_urls(output_file: str, model_name: str, base_path_name: str):
 
     """
 
-    content = f"""path("{base_path_name}", views.{model_name}ListView.as_view(), name="{model_name}-list"),\n"""
-    content += f"""path("{base_path_name}/<int:obj_id>", views.{model_name}DetailsView.as_view(), name="{model_name}-details"),\n"""
-    content += f"""path("{base_path_name}/search", views.{model_name}SearchView.as_view(), name="{model_name}-search"),\n"""
+    content = f"""path("{base_path_name}", views.{model_name}ListView.as_view(), name="{model_name.lower()}-list"),\n"""
+    content += f"""path("{base_path_name}/<int:obj_id>", views.{model_name}DetailsView.as_view(), name="{model_name.lower()}-details"),\n"""
+    content += f"""path("{base_path_name}/search", views.{model_name}SearchView.as_view(), name="{model_name.lower()}-search"),\n"""
     f = open(output_file, "w")
     f.write(content)
     print("finished")

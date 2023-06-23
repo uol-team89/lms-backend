@@ -12,7 +12,9 @@ class Course(BaseModel):
     """
 
     title = models.CharField(max_length=512, unique=True)
-    teacher = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    teacher = models.ForeignKey(
+        User, on_delete=models.SET_NULL, null=True, related_name="courses"
+    )
 
     def save(self, *args, **kwargs):
         if self.teacher.role != UserType.teacher:
