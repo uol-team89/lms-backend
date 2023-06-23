@@ -19,7 +19,7 @@ class Course(BaseModel):
     end_date = models.DateField()
 
     def save(self, *args, **kwargs):
-        if self.teacher.role != UserType.teacher:
+        if self.teacher and self.teacher.role != UserType.teacher:
             raise ValidationError({"teacher": "User's role must be of type 'teacher'."})
         if self.end_date <= self.start_date:
             raise ValidationError(

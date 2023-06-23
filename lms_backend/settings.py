@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     # local apps
     "app_auth",
     "app_course",
+    "app_data",
     # third-party apps
     "rest_framework",
     "rest_framework_swagger",
