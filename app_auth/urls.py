@@ -6,4 +6,5 @@ urlpatterns = [
     path("users", views.UserListView.as_view(), name="user-list"),
     path("users/<int:obj_id>", views.UserDetailsView.as_view(), name="user-details"),
     path("users/search", views.UserSearchView.as_view(), name="user-search"),
+    path("login", views.LoginView.as_view(), name="login"),
 ]
